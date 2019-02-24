@@ -1,10 +1,9 @@
 import { Controller,Get,Options} from '@nestjs/common';
-import { AppService } from '../app.service';
-import { get } from 'http';
+import { UserService } from './user.service';
 
 @Controller('login')
 export class UserController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly UserService: UserService) {}
 
   @Options()
   optionRequest(){
@@ -13,6 +12,6 @@ export class UserController {
 
   @Get()
   getHello(): string {
-    return this.appService.getHello();
+    return this.UserService.getHello();
   }
 }
