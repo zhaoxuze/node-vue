@@ -11,7 +11,7 @@ export class UserController {
   }
 
   @Get()
-  getHello(): string {
+  getHello() {
     return this.UserService.getHello();
   }
 }
