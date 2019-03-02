@@ -68,7 +68,6 @@ const user = {
             reject('Verification failed, please login again.')
           }
           const data = response.data.data
-          debugger
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
           } else {
