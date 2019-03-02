@@ -46,9 +46,9 @@ const user = {
   actions: {
     // 用户名登录
     LoginByUsername({ commit }, userInfo) {
-      const username = userInfo.username.trim()
+      const userName = userInfo.userName.trim()
       return new Promise((resolve, reject) => {
-        loginByUsername(username, userInfo.password).then(response => {
+        loginByUsername(userName, userInfo.passWord).then(response => {
           const data = response.data
           commit('SET_TOKEN', data.token)
           setToken(response.data.token)
@@ -67,8 +67,8 @@ const user = {
           if (!response.data) {
             reject('Verification failed, please login again.')
           }
-          const data = response.data
-
+          const data = response.data.data
+          debugger
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
           } else {

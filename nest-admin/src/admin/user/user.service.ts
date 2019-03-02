@@ -10,8 +10,8 @@ export class UserService {
   getHello() {
     // return 'Hello World!';
       let usr = new Users();
-      usr.admin_name = "John";
-      usr.admin_passwd = "123456";
+      usr.userName = "admin";
+      usr.passWord = "123456";
       usr.created_at = Date.now();
       usr.updated_at = 1;
       usr.admin_status = 1;
@@ -28,4 +28,15 @@ export class UserService {
   findOneByUserName (userName) {
     
   }
+
+  getUserInfo () {
+    return {
+      roles: ['admin'],
+      token: 'admin',
+      introduction: '我是超级管理员',
+      avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+      name: 'Super Admin'
+    }
+  }
+
 }

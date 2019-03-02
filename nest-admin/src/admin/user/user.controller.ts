@@ -1,8 +1,8 @@
-import { Controller,Get,Options,UseGuards} from '@nestjs/common';
+import { Controller,Get,Options, Post } from '@nestjs/common';
 import { UserService } from './user.service';
-import { AuthGuard } from '@nestjs/passport';
 
-@Controller('login')
+
+@Controller('user')
 export class UserController {
   constructor(private readonly UserService: UserService) {}
 
@@ -11,9 +11,20 @@ export class UserController {
     return {}
   }
   
-  @Get()
-  @UseGuards(AuthGuard())
+  @Post()
   getHello() {
     return this.UserService.getHello();
   }
+
+  @Get()
+  getUserInfo() {
+    let data = this.UserService.getUserInfo();
+    return {
+      data: data,
+      code: 200,
+      msg: 'success'
+    }
+  }
+
+
 }
