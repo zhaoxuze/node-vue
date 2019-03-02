@@ -1,5 +1,6 @@
-import { Controller,Get,Options} from '@nestjs/common';
+import { Controller,Get,Options,UseGuards} from '@nestjs/common';
 import { UserService } from './user.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('login')
 export class UserController {
@@ -9,8 +10,9 @@ export class UserController {
   optionRequest(){
     return {}
   }
-
+  
   @Get()
+  @UseGuards(AuthGuard())
   getHello() {
     return this.UserService.getHello();
   }

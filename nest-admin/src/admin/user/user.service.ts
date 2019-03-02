@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import {createConnection} from "typeorm";
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, getManager, getConnection } from 'typeorm';
-import { Users } from "../entities/user.entity";
+import { Users } from "../../entities/user.entity";
 
 @Injectable()
 export class UserService {
   constructor(@InjectRepository(Users) private readonly userRepository: Repository<Users>) { };
+
   getHello() {
     // return 'Hello World!';
       let usr = new Users();
@@ -23,5 +23,9 @@ export class UserService {
                   return 'aaaa';
               });
 
+  }
+
+  findOneByUserName (userName) {
+    
   }
 }
