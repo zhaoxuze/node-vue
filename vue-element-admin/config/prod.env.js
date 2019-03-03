@@ -1,5 +1,5 @@
 module.exports = {
   NODE_ENV: '"production"',
   ENV_CONFIG: '"prod"',
-  BASE_API: '"http://127.0.0.1:5000"'
+  BASE_API: '"http://106.12.18.165:5000"'
 }
