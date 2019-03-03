@@ -75,3 +75,16 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
   Nest is [MIT licensed](LICENSE).
 
   参考项目： https://github.com/Novak12/nest-app/tree/master/nestapp/src
+
+  本地mysql环境安装：
+    1 安装docker
+    2 拉取mysql镜像   docker pull mysql:5.6
+    3 docker中运行mysql容器   docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc@123 -d mysql:5.6
+
+    命令说明：
+    -p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。
+    -v -v $PWD/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。
+    -v $PWD/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。
+    -v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。
+    -e MYSQL_ROOT_PASSWORD=abc@123：初始化 root 用户的密码。
+
